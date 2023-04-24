@@ -10,10 +10,12 @@ def sub():
     if(y==0):
         say='a very charming welcome, to our Day finder app, mister ',name,'!'
         engine.say(say)
+        engine.say("Please enter any date")
         engine.runAndWait()
     elif(y==1):
         say='a very charming welcome, to our Day finder app, miss ',name,'!'
         engine.say(say)
+        engine.say("Please enter any date")
         engine.runAndWait()
     radio1.destroy()
     radio2.destroy()
@@ -23,6 +25,11 @@ def sub():
     btn.destroy()
 def destroy():
     win.destroy()
+    engine=pyttsx3.init()
+    rate=engine.getProperty('rate')
+    engine.setProperty('rate',rate-60)
+    engine.say("thanks a lot for using our application!!!!!Bye , see you soon")
+    engine.runAndWait()
 def day_finder(inp):
     inp=inp.lower()
     if('-' in inp):
@@ -83,13 +90,25 @@ def day_finder(inp):
 
 def day_find():
     inp=var1.get()
-    res=day_finder(inp)
-    messagebox.showinfo("Success",res)
+    if(inp==''):
+        engine=pyttsx3.init()
+        rate=engine.getProperty('rate')
+        engine.setProperty('rate',rate-60)
+        engine.say("Sorry, you haven't entered a date...please try giving a valid date")
+    else:
+        res=day_finder(inp)
+        messagebox.showinfo("Success",res)
+        engine=pyttsx3.init()
+        rate=engine.getProperty('rate')
+        engine.setProperty('rate',rate-60)
+        say="The day of",inp,"is",res
+        engine.say(say)
+        engine.runAndWait()
+def disable_event():
     engine=pyttsx3.init()
     rate=engine.getProperty('rate')
     engine.setProperty('rate',rate-60)
-    say="The day of",inp,"is",res
-    engine.say(say)
+    engine.say("Sorry ! The cancel button is disabled!! Please hit the Exit button for exiting the application!!")
     engine.runAndWait()
 win=Tk()
 var1=StringVar()
@@ -121,4 +140,5 @@ btn.place(x=140,y=280)
 btn3=Button(win,text='EXIT',bg='#bcbf1b',command=destroy,height='2',width='8',font=('Times New Roman',24,'bold','italic','underline'))
 btn3.place(x=500,y=280)
 win.configure(bg='#6f7a72')
+win.protocol("WM_DELETE_WINDOW", disable_event)
 win.mainloop()
