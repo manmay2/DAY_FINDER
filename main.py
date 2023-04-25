@@ -36,10 +36,14 @@ def day_finder(inp):
         day=inp.split('-')[0]
         month=inp.split('-')[1]
         year=inp.split('-')[2]
-    elif('-' not in inp):
+    elif(' ' in inp):
         day=inp.split(' ')[0]
         month=inp.split(' ')[1]
         year=inp.split(' ')[2]
+    elif('/' in inp):
+        day=inp.split('/')[0]
+        month=inp.split('/')[1]
+        year=inp.split('/')[2]
     def leap_year(year):
         if(year%100==0 and year%400==0):
             return True
