@@ -20,7 +20,7 @@ THIS IS A SIMPLE PYTHON GUI APPLICATION WHICH HELPS YOU TO FIND THE PARTICULAR D
 - After Entering Name,Gender : <!-- ![Logo](Images/1st.PNG) -->
             <kbd>![Image](Images/1st.PNG)</kbd>
             
-- Entering Date : <!-- ![Logo](Images/2nd.PNG) -->
+- Entering Date  (NOTE , YOU CAN ENTER DATE AS 13 NOVEMBER 2004 OR 13-11-2004 OR 13/11/2004) : <!-- ![Logo](Images/2nd.PNG) -->
             <kbd>![Image](Images/2nd.PNG)</kbd>
 
            
